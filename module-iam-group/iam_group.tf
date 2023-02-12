@@ -3,13 +3,11 @@
 ## ----------------------------------------------------------##
 
 resource "aws_iam_group" "group" {
-  #name = "admin"
   name = lookup(var.iam_dados, var.env)["group_name"]
 }
 
 resource "aws_iam_group_policy" "policy_admin" {
-  #name  = "AdministratorAccess"
-  name = lookup(var.iam_dados, var.env)["policy_name_admin"]
+  name  = lookup(var.iam_dados, var.env)["policy_name_admin"]
   group = aws_iam_group.group.name
 
   policy = jsonencode({
@@ -26,8 +24,7 @@ resource "aws_iam_group_policy" "policy_admin" {
 
 
 resource "aws_iam_group_policy" "Support_Deny" {
-  #name  = "SupportDeny"
-  name = lookup(var.iam_dados, var.env)["policy_name_denny"]
+  name  = lookup(var.iam_dados, var.env)["policy_name_denny"]
   group = aws_iam_group.group.name
 
   policy = jsonencode({
@@ -45,8 +42,7 @@ resource "aws_iam_group_policy" "Support_Deny" {
 }
 
 resource "aws_iam_group_policy" "Policy_Billing" {
-  #name  = "BillingDenyPolicy"
-  name = lookup(var.iam_dados, var.env)["policy_name_iam_billing"]
+  name  = lookup(var.iam_dados, var.env)["policy_name_iam_billing"]
   group = aws_iam_group.group.name
 
   policy = jsonencode({

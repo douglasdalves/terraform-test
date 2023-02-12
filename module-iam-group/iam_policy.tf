@@ -1,5 +1,4 @@
 resource "aws_iam_policy" "Support_Deny" {
-  #name = "SupportDeny"
   name = lookup(var.iam_dados, var.env)["policy_name_deny"]
 
   policy = <<EOF
@@ -20,7 +19,6 @@ EOF
 
 
 resource "aws_iam_policy" "Policy_Billing" {
-  #name = "BillingDenyPolicy"
   name = lookup(var.iam_dados, var.env)["policy_name_billing"]
 
   policy = <<EOF

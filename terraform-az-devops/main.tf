@@ -37,6 +37,7 @@ locals {
 
 
 module "grupo_admin" {
-  source          = "../module-iam-group"
-  env = var.enviroment
+  source    = "../module-iam-group"
+  iam_dados = var.dados_modulo_iam
+  env       = var.enviroment
 }
