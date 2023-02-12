@@ -11,7 +11,6 @@ terraform {
       version = "2.2.0"
     }
   }
-  #backend "s3" {}
 }
 
 provider "aws" {
@@ -37,6 +36,8 @@ locals {
 
 
 module "grupo_admin" {
-  source          = "../module-iam-group"
-  env = var.enviroment
+  source          = "../module-iam_group"
+  POLICY_SETTINGS = var.modulo_iam_policy["settings"]
+  GROUP_SETTINGS  = var.modulo_iam["settings"]
+  #POLICY_VARIABLES = var.modulo_iam["variables"]
 }
