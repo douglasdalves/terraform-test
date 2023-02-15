@@ -63,11 +63,12 @@ variable "aws_region" {
 
 variable "enviroment" {
   type        = string
-  description = "Digite o nome do ambiente que deseja executar o terraform (hml, dev, qa, stg ou prod)"
+  description = "Digite o nome do ambiente que deseja executar o terraform (hml, dev, qa, stg ou prd)"
 }
 
 
-#https://medium.com/digitalproductsdev/organizando-sua-infraestrutura-como-c%C3%B3digo-com-terraform-df6ca70d8eb
+#https://developer.hashicorp.com/terraform/cli/commands/init
+#terraform init -backend-config=config\hml.conf"
 
-
-#-auto-approve -var-file="hml.tfvars
+#terraform destroy -auto-approve -var-file="env\hml.tfvars"
+#terraform destroy -auto-approve -var-file="env\prd.tfvars"
